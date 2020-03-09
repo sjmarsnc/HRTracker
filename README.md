@@ -29,7 +29,9 @@ The data is stored in tables with keys linking them as shown below:
 
 ## Implementation 
 
-This version uses async / await extensively to avoid nested calls, based on review in class.  I modified it more to avoid calls to the database every time I need to list roles, people, or department.  I build that array at startup, and then rebuild any time an item is added or deleted from one of those types.   
+schema.sql and seeds.sql files are provided to set up the tables and populate with sample records.  
+
+This version uses async / await extensively to avoid nested calls, based on review in class.  I modified it more to avoid calls to the database every time I need to list roles, people, or department.  I build those arrays at startup, and then rebuild any time an item is added or deleted from one of those types.   
 
 It could still use a few enhancements like checking for duplicate names of roles and departments and catching those errors.  
 
