@@ -1,0 +1,29 @@
+{
+  "name": "EmployeeTracker",
+  "version": "1.0.0",
+  "description": "This application uses data in a mySQL server to store employee information and allows\r the user to perform common Human Resources tasks such as adding and removing an employee, setting up new departments and job roles, changing salaries, etc.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjmarsnc/EmployeeTracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjmarsnc/EmployeeTracker/issues"
+  },
+  "homepage": "https://github.com/sjmarsnc/EmployeeTracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^7.0.6",
+    "mysql": "^2.18.1",
+    "util": "^0.12.2"
+  },
+  "directories": {
+    "lib": "lib"
+  }
+}
