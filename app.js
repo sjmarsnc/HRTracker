@@ -162,32 +162,37 @@ const loadMainPrompts = async () => {
 
 async function viewEmployees (order) {
     const employees = await db.findAllEmployees(order);  
-    console.log('\n');
-    console.table(employees);  
+    if (order === undefined || order === null) order = "";  
+    console.log(`\nAll Employees ${order}\n`);
+    console.table(employees); 
+    console.log('\n'); 
 
     loadMainPrompts(); 
 }
 
 async function viewDepartments() { 
   const departments = await db.findAllDepartments(); 
-  console.log('\n'); 
-  console.table(departments); 
+  console.log('\nAll Departments\n===============\n'); 
+  console.table(departments);
+  console.log('\n');
 
   loadMainPrompts(); 
 }
 
 async function viewRoles() {
   const roles = await db.findAllRoles(); 
-  console.log('\n'); 
+  console.log('\nAll Roles\n=========\n'); 
   console.table(roles); 
+  console.log('\n');
 
   loadMainPrompts();
 }
 
 async function viewTotalDepartmentSalary() {
   const departmentTotals = await db.getDepartmentTotals(); 
-  console.log('\n');
-  console.table(departmentTotals);  
+  console.log('\nTotal Salary by Department\n==========================\n');
+  console.table(departmentTotals); 
+  console.log('\n'); 
   loadMainPrompts();  
 }
 
@@ -344,6 +349,7 @@ async function removeEmployee() {
   ]); 
 
   await db.dropEmployee ( empId ); 
+  createEmployeeChoices(); 
   loadMainPrompts();  
 }
 
@@ -358,6 +364,7 @@ async function removeDepartment() {
   ]); 
 
   await db.dropDepartment ( deptId ); 
+  createDepartmentChoices();  
   loadMainPrompts();  
 }
 
@@ -365,13 +372,14 @@ async function removeRole() {
   const { roleId } = await prompt ([
     {
       type: "list",
-      name: "role",
+      name: "roleId",
       message: "Which role do you want to remove?", 
       choices: roleChoices
     }
   ]); 
 
   await db.dropRole ( roleId ); 
+  createRoleChoices();  
   loadMainPrompts();  
 }
 
